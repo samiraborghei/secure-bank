@@ -1,0 +1,46 @@
+
+
+    spring:
+      application:
+        name: first-springboot-project
+
+      datasource:
+        url: jdbc:mysql://host.docker.internal:3306/samsam
+        username: root
+        password: ...
+
+      jpa:
+        hibernate:
+          ddl-auto: update
+        show-sql: true
+        properties:
+          hibernate:
+            format_sql: true
+
+            ai:
+              ollama:
+                base-url: http://host.docker.internal:11434
+                chat:
+                  model: llama3.2
+                embedding:
+                  options:
+                    model: nomic-embed-text
+              mcp:
+                server:
+                  name: securebank-mcp-server
+                  version: 1.0.0
+                  protocol: STREAMABLE
+
+                  client:
+                    streamable-http:
+                      connections:
+                        securebank:
+                          url: http://localhost:8090
+
+
+
+    server:
+      port: 8083
+
+    jwt:
+      secret: ${JWT_SECRET:mySecretKeyForSecureBankApplication}
