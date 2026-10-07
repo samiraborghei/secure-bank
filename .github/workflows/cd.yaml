@@ -38,4 +38,4 @@ jobs:
         with:
           context: .
           push: true
-tags: ghcr.io/samiraborghei/first-springboot-project:latest
+          tags: ghcr.io/samiraborghei/first-springboot-project:latest
